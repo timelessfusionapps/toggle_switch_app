@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:toggle_switch_app/switch_widget.dart';
+import 'package:toggle_switch_app/toggle_widget.dart';
 
 const themeBox = 'hiveThemeBox';
 void main() async {
@@ -50,17 +51,56 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-          child: ElevatedButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => const SwitchWidgetExample()),
-          );
-        },
-        child: const Text('Switch Widget'),
-      )),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const SizedBox(
+              height: 40,
+            ),
+            ElevatedButton(
+              style:
+                  ElevatedButton.styleFrom(primary: Colors.blueGrey.shade600),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SwitchWidgetExample()),
+                );
+              },
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Switch Widget',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              style:
+                  ElevatedButton.styleFrom(primary: Colors.blueGrey.shade600),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ToggleWidgetExample()),
+                );
+              },
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Toggle Widget',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

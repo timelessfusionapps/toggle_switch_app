@@ -17,42 +17,48 @@ class _SwitchWidgetExampleState extends State<SwitchWidgetExample> {
         title: const Text('Switch Widget'),
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(vertical: 16, horizontal: 14),
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 14),
         shrinkWrap: true,
         children: [
-          const Spacer(),
+          const SizedBox(
+            height: 10,
+          ),
           Image.asset(
             isLightOn ? 'assets/on.png' : 'assets/off.png',
-            height: 300,
+            height: 200,
           ),
-          const Spacer(),
+          const SizedBox(
+            height: 30,
+          ),
           buildPlatformSpecific(),
-          const Spacer(),
+          const SizedBox(
+            height: 30,
+          ),
           buildWidget(child: buildAdaptiveSwitch(), text: 'Adaptive Switch'),
-          const Spacer(),
-          buildWidget(
-              child: androidImageSwitch(), text: 'Android Image Switch'),
+          const SizedBox(
+            height: 30,
+          ),
+          buildWidget(child: androidImageSwitch(), text: 'Image Switch'),
         ],
       ),
     );
   }
 
-  Widget buildPlatformSpecific() => Row(
+  Widget buildPlatformSpecific() => Column(
         children: [
-          Expanded(
-            child: buildWidget(child: androidSwitch(), text: 'Android Switch'),
+          buildWidget(child: androidSwitch(), text: 'Android Switch'),
+          const SizedBox(
+            height: 20,
           ),
-          Expanded(
-            child: buildWidget(child: iOSSwitch(), text: 'iOS Switch'),
-          ),
+          buildWidget(child: iOSSwitch(), text: 'iOS Switch'),
         ],
       );
   Widget buildWidget({
     required Widget child,
     required String text,
   }) =>
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             text,
@@ -64,7 +70,7 @@ class _SwitchWidgetExampleState extends State<SwitchWidgetExample> {
       );
 
   Widget buildAdaptiveSwitch() => Transform.scale(
-        scale: 2,
+        scale: 1.2,
         child: Switch.adaptive(
           thumbColor: MaterialStateProperty.all(Colors.red),
           trackColor: MaterialStateProperty.all(Colors.orange),
@@ -82,14 +88,25 @@ class _SwitchWidgetExampleState extends State<SwitchWidgetExample> {
   Widget iOSSwitch() => Transform.scale(
         scale: 1.1,
         child: CupertinoSwitch(
+          // overrides default green color of track
+          activeColor: Colors.pink.shade200,
+          // the color of round icon which moves from right to left
+          thumbColor: Colors.green.shade900,
+          // when the switch is off
+          trackColor: Colors.black12,
           value: isLightOn,
           onChanged: (value) => setState(() => isLightOn = value),
         ),
       );
 
   Widget androidSwitch() => Transform.scale(
-        scale: 2,
+        scale: 1.5,
         child: Switch(
+          activeColor: Colors.amber,
+          activeTrackColor: Colors.cyan,
+          inactiveThumbColor: Colors.blueGrey.shade600,
+          inactiveTrackColor: Colors.grey.shade400,
+          splashRadius: 50.0,
           value: isLightOn,
           onChanged: (value) => setState(() => isLightOn = value),
         ),
@@ -98,7 +115,7 @@ class _SwitchWidgetExampleState extends State<SwitchWidgetExample> {
   Widget androidImageSwitch() => Transform.scale(
         scale: 2,
         child: SizedBox(
-          width: 75,
+          width: 100,
           child: Switch(
             trackColor: MaterialStateProperty.all(Colors.black38),
 
