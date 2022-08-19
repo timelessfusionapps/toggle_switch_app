@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:toggle_switch_app/animated_toggle_switch.dart';
+import 'package:toggle_switch_app/customAnimated/custom_switch_button.dart';
 import 'package:toggle_switch_app/switch_widget.dart';
 import 'package:toggle_switch_app/toggle_widget.dart';
 
@@ -24,6 +26,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             themeMode: darkMode ? ThemeMode.dark : ThemeMode.light,
             title: 'Flutter Demo',
+            //theme: ThemeData(platform: TargetPlatform.android),
             darkTheme: ThemeData.dark(),
             home: HomePage(
               value: darkMode,
@@ -94,6 +97,48 @@ class HomePage extends StatelessWidget {
                 padding: EdgeInsets.all(8.0),
                 child: Text(
                   'Toggle Widget',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              style:
+                  ElevatedButton.styleFrom(primary: Colors.blueGrey.shade600),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CustomSwitchButton()),
+                );
+              },
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Custom Animated Switch',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              style:
+                  ElevatedButton.styleFrom(primary: Colors.blueGrey.shade600),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const AnimatedToggleSwitchButton()),
+                );
+              },
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Animated Toggle Switch',
                   style: TextStyle(fontSize: 20),
                 ),
               ),

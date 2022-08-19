@@ -19,15 +19,46 @@ class _MultipleRequiredState extends State<MultipleRequired> {
       fillColor: Colors.lightBlue.shade900,
       borderWidth: 3,
       borderColor: Colors.lightBlue.shade900,
+      textStyle: const TextStyle(fontSize: 20),
       selectedBorderColor: Colors.lightBlue,
-      borderRadius: BorderRadius.circular(50),
-      children: const [
-        Icon(Icons.ac_unit),
+      borderRadius: BorderRadius.circular(10),
+      children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24),
-          child: Text('Any', style: TextStyle(fontSize: 18)),
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: const [
+              Icon(
+                Icons.delivery_dining,
+                size: 32,
+              ),
+              Text('Delivery'),
+            ],
+          ),
         ),
-        Icon(Icons.cake),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: const [
+              Icon(
+                Icons.dinner_dining,
+                size: 32,
+              ),
+              Text('Dining'),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: const [
+              Icon(
+                Icons.fastfood,
+                size: 32,
+              ),
+              Text('Carry Out'),
+            ],
+          ),
+        ),
       ],
       onPressed: (int newIndex) {
         final isOneSelected =

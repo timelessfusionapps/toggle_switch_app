@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:toggle_switch_app/widgets/multiple_not_required.dart';
-import 'package:toggle_switch_app/widgets/multiple_required.dart';
-import 'package:toggle_switch_app/widgets/single_not_required.dart';
-import 'package:toggle_switch_app/widgets/single_required.dart';
 
 class ToggleWidgetExample extends StatelessWidget {
   const ToggleWidgetExample({Key? key}) : super(key: key);
@@ -13,31 +10,29 @@ class ToggleWidgetExample extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Toggle Widget'),
       ),
-      body: ListView(
-        shrinkWrap: true,
-        padding: const EdgeInsets.all(16.0),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          buildWidget(
-              title: 'Single Selection, Required',
-              child: const SingleRequired()),
-          const SizedBox(
-            height: 20,
+          /*Center(
+            child: buildWidget(
+                title: 'Single Selection, Required',
+                child: const SingleRequired()),
+          ),*/
+          /* Center(
+            child: buildWidget(
+                title: 'Single Selection, Not Required',
+                child: const SingleNotRequired()),
+          ),*/
+          /*Center(
+            child: buildWidget(
+                title: 'Multiple Selection, Required',
+                child: const MultipleRequired()),
+          ),*/
+          Center(
+            child: buildWidget(
+                title: 'Multiple Selection, Not Required',
+                child: const MultipleNotRequired()),
           ),
-          buildWidget(
-              title: 'Single Selection, Not Required',
-              child: const SingleNotRequired()),
-          const SizedBox(
-            height: 20,
-          ),
-          buildWidget(
-              title: 'Multiple Selection, Required',
-              child: const MultipleRequired()),
-          const SizedBox(
-            height: 20,
-          ),
-          buildWidget(
-              title: 'Multiple Selection, Not Required',
-              child: const MultipleNotRequired()),
         ],
       ),
     );

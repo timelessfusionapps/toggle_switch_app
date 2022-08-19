@@ -37,6 +37,9 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   provider: ^6.0.3
+  animated_toggle_switch: ^0.5.2
+  simple_animations: ^5.0.0+2
+  supercharged: ^2.1.1
 
 
 dev_dependencies:

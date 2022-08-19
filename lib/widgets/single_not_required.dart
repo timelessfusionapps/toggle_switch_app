@@ -15,11 +15,30 @@ class _SingleNotRequiredState extends State<SingleNotRequired> {
       isSelected: isSelected,
       selectedColor: Colors.white,
       color: Colors.black,
-      fillColor: Colors.lightBlue.shade900,
+      fillColor: Colors.brown.shade900,
+      borderColor: Colors.brown,
       children: const [
-        Icon(Icons.ac_unit),
-        Icon(Icons.call),
-        Icon(Icons.cake),
+        Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Icon(
+            Icons.phone,
+            size: 48,
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Icon(
+            Icons.phone_callback,
+            size: 48,
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Icon(
+            Icons.phone_disabled,
+            size: 48,
+          ),
+        ),
       ],
       onPressed: (int newIndex) {
         setState(() {
