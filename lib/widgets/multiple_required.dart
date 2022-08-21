@@ -61,14 +61,23 @@ class _MultipleRequiredState extends State<MultipleRequired> {
         ),
       ],
       onPressed: (int newIndex) {
+        /*We looping through the list of booleans
+        * We make sure that value is true
+        * and therefore at least one is always selected
+        * */
         final isOneSelected =
             isSelected.where((element) => element).length == 1;
-
+        /*If only one button is selected we cannot toggle it to false
+        * but we can also select another button
+        * */
         if (isOneSelected && isSelected[newIndex]) return;
 
         setState(() {
+          // looping through the list of booleans
           for (int index = 0; index < isSelected.length; index++) {
+            // checking for the index value
             if (index == newIndex) {
+              // toggle between old index and new index value
               isSelected[index] = !isSelected[index];
             }
           }

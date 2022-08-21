@@ -29,7 +29,9 @@ class _MultipleNotRequiredState extends State<MultipleNotRequired> {
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 24),
-          child: Text('U', style: TextStyle(fontSize: 18)),
+          child: Text('U',
+              style: TextStyle(
+                  fontSize: 18, decoration: TextDecoration.underline)),
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 24),
@@ -38,6 +40,7 @@ class _MultipleNotRequiredState extends State<MultipleNotRequired> {
       ],
       onPressed: (int index) {
         setState(() {
+          // simply toggling buttons between true and false state
           isSelected[index] = !isSelected[index];
         });
       },

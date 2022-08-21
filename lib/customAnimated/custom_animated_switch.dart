@@ -14,25 +14,27 @@ class CustomAnimatedSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String off = 'OFF';
-    String on = 'ON';
     var customTween = MovieTween()
       ..scene(duration: const Duration(seconds: 1))
           .tween(_CustomSwitchParams.paddingLeft, 0.0.tweenTo(60.0))
       ..scene(duration: const Duration(seconds: 1))
           .tween(_CustomSwitchParams.color, Colors.red.tweenTo(Colors.green))
       ..scene(duration: const Duration(milliseconds: 500))
-          .tween(_CustomSwitchParams.text, ConstantTween(off))
-          .thenTween(_CustomSwitchParams.text, ConstantTween(on),
+          .tween(_CustomSwitchParams.text, ConstantTween('OFF'))
+          .thenTween(_CustomSwitchParams.text, ConstantTween('ON'),
               duration: const Duration(milliseconds: 500))
       ..scene(duration: const Duration(seconds: 1))
           .tween(_CustomSwitchParams.rotation, (-2 * pi).tweenTo(0.0));
 
     return CustomAnimationBuilder<Movie>(
+      // control of the animation
       control: toggle ? Control.play : Control.playReverse,
+      // the relative position where animation will start
       startPosition: toggle ? 1.0 : 0.0,
+      // define unique key
       key: const Key('0'),
       duration: customTween.duration * 1.2,
+      // movie tween object
       tween: customTween,
       curve: Curves.easeInOut,
       builder: (context, value, child) {

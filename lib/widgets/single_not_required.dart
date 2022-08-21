@@ -8,6 +8,7 @@ class SingleNotRequired extends StatefulWidget {
 }
 
 class _SingleNotRequiredState extends State<SingleNotRequired> {
+  // all values are false
   List<bool> isSelected = [false, false, false];
   @override
   Widget build(BuildContext context) {
@@ -42,10 +43,13 @@ class _SingleNotRequiredState extends State<SingleNotRequired> {
       ],
       onPressed: (int newIndex) {
         setState(() {
+          // looping through the list of booleans values
           for (int index = 0; index < isSelected.length; index++) {
             if (index == newIndex) {
+              // toggling between the button to set it to true
               isSelected[index] = !isSelected[index];
             } else {
+              // other two buttons will not be selected and are set to false
               isSelected[index] = false;
             }
           }

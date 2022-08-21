@@ -33,7 +33,7 @@ class _SingleRequiredState extends State<SingleRequired> {
       borderWidth: 1.5,
       borderRadius: BorderRadius.circular(10),
       selectedBorderColor: Colors.pink,
-
+      // add widgets for which the users need to toggle
       children: const [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 12),
@@ -48,12 +48,17 @@ class _SingleRequiredState extends State<SingleRequired> {
           child: Text('OTHER', style: TextStyle(fontSize: 18)),
         ),
       ],
+      // to select or de-select when pressed
       onPressed: (int newIndex) {
         setState(() {
+          // looping through the list of booleans values
           for (int index = 0; index < isSelected.length; index++) {
+            // checking for the index value
             if (index == newIndex) {
+              // one button is always set to true
               isSelected[index] = true;
             } else {
+              // other two will be set to false and not selected
               isSelected[index] = false;
             }
           }

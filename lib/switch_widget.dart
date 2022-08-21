@@ -119,8 +119,9 @@ class _SwitchWidgetExampleState extends State<SwitchWidgetExample> {
           thumbColor: Colors.green.shade900,
           // when the switch is off
           trackColor: Colors.black12,
-          // boolean value
+          // boolean variable value
           value: forIos,
+          // changes the state of the switch
           onChanged: (value) => setState(() => forIos = value),
         ),
       );
@@ -135,7 +136,9 @@ class _SwitchWidgetExampleState extends State<SwitchWidgetExample> {
           inactiveThumbColor: Colors.blueGrey.shade600,
           inactiveTrackColor: Colors.grey.shade400,
           splashRadius: 50.0,
+          // boolean variable value
           value: forAndroid,
+          // changes the state of the switch
           onChanged: (value) => setState(() => forAndroid = value),
         ),
       );
@@ -147,7 +150,9 @@ class _SwitchWidgetExampleState extends State<SwitchWidgetExample> {
           trackColor: MaterialStateProperty.all(Colors.black38),
           activeColor: Colors.green.withOpacity(0.4),
           inactiveThumbColor: Colors.red.withOpacity(0.4),
+          // when the switch is on, this image will be displayed
           activeThumbImage: const AssetImage('assets/happy_emoji.png'),
+          // when the switch is off, this image will be displayed
           inactiveThumbImage: const AssetImage('assets/sad_emoji.png'),
           value: forImage,
           onChanged: (value) => setState(() => forImage = value),
